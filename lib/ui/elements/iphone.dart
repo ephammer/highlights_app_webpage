@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:highlights_webpage/ui/tools/adaptive.dart';
 
 class Iphone extends StatelessWidget {
   String imagePath;
@@ -8,28 +9,29 @@ class Iphone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final isDesktop = isDisplayDesktop(context);
 
     return Card(
       elevation: 35,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(35),
+          Radius.circular(isDesktop ? 35 : 15),
         ),
       ),
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
             color: Colors.black,
-            width: 10,
+            width: isDesktop ? 10 : 5,
           ),
-          borderRadius: BorderRadius.circular(35),
+          borderRadius: BorderRadius.circular(isDesktop ? 35 : 15),
         ),
-        height: size.height * 0.8,
-        width: size.height * 0.8 * 0.5,
+        height: isDesktop ? size.height * 0.8 : size.height * 0.5,
+        width: isDesktop ? size.height * 0.8 * 0.5 : size.height * 0.5 * 0.5,
         child: ClipRRect(
           borderRadius: BorderRadius.all(
             Radius.circular(
-              35,
+              isDesktop ? 35 : 15,
             ),
           ),
           child: Image.asset(

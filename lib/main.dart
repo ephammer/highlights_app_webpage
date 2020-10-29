@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Highlights App',
       theme: ThemeData(
-        primarySwatch: Colors.red[800],
+        primarySwatch: Colors.red,
       ),
       home: MyHomePage(title: 'Highlights App'),
     );
